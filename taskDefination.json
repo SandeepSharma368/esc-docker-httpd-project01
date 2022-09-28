@@ -3,7 +3,7 @@
         "containerDefinitions": [
             {
                 "name": "test-httpd-project01",
-                "image": "607099081230.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/canoe-sync-manager-job",
+                "image": "116348630935.dkr.ecr.us-east-1.amazonaws.com/httpd-project01",
                 "cpu": 0,
                 "portMappings": [
                     {
