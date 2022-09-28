@@ -1,0 +1,116 @@
+{
+    "taskDefinition": {
+        "containerDefinitions": [
+            {
+                "name": "test-httpd-project01",
+                "image": "607099081230.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/canoe-sync-manager-job",
+                "cpu": 0,
+                "portMappings": [
+                    {
+                        "containerPort": 3000,
+                        "hostPort": 80,
+                        "protocol": "tcp"
+                    }
+                ],
+                "essential": true,
+                "environment": [
+                    {
+                        "name": "OAUTH_CLIENT_ID",
+                        "value": ""
+                    },
+                    {
+                        "name": "OAUTH_CLIENT_SECRET",
+                        "value": ""
+                    },
+                    {
+                        "name": "SYNC_MANAGER_BASE_URL",
+                        "value": ""
+                    },
+                    {
+                        "name": "CANOE_BASE_URL",
+                        "value": ""
+                    },
+                    {
+                        "name": "MOCK_CLIENT_USERNAME",
+                        "value": ""
+                    },
+                    {
+                        "name": "MOCK_CLIENT_PASSWORD",
+                        "value": ""
+                    },
+                    {
+                        "name": "USE_ADDEPAR_SANDBOX",
+                        "value": ""
+                    },
+                    {
+                        "name": "RATE_LIMIT_CLIENT_ID",
+                        "value": ""
+                    },
+                    {
+                        "name": "CANOE_DOCUMENTS_DATA_ENDPOINT",
+                        "value": "/v1/documents/data"
+                    },
+
+                    {
+                        "name": "PORT",
+                        "value": "3000"
+                    },
+                    {
+                        "name": "HEARTBEAT_INTERVAL_MILLISECONDS",
+                        "value": "60000"
+                    },
+
+                    {
+                        "name": "INTEGRATION_ID",
+                        "value": "1"
+                    },
+
+                    {
+                        "name": "NODE_TLS_REJECT_UNAUTHORIZED",
+                        "value": "1"
+                    },
+                    {
+                        "name": "ADDEPAR_BASE_URL",
+                        "value": "https://canoe.clientdev.addepar.com/api"
+                    },
+                    {
+                        "name": "NODE_ENV",
+                        "value": "production"
+                    },
+                    {
+                        "name": "ADDEPAR_TRANSACTIONS_ENDPOINT",
+                        "value": "/v1/transactions"
+                    },
+                    {
+                        "name": "CANOE_INTEGRATION_CREDENTIAL_ENDPOINT",
+                        "value": "/v1/credentials/addepar"
+                    }
+                ],
+                "mountPoints": [],
+                "volumesFrom": [],
+                "logConfiguration": {
+                    "logDriver": "awslogs",
+                    "options": {
+                        "awslogs-group": "/ecs/Canoe-staging-sync-manager-job",
+                        "awslogs-region": "us-east-1",
+                        "awslogs-stream-prefix": "ecs"
+                    }
+                }
+            }
+        ],
+        "family": "Canoe-staging-sync-manager-job",
+        "taskRoleArn": "arn:aws:iam::607099081230:role/ecsTaskExecutionRole",
+        "executionRoleArn": "arn:aws:iam::607099081230:role/ecsTaskExecutionRole",
+        "networkMode": "awsvpc",
+        "volumes": [],
+        "placementConstraints": [],
+        "runtimePlatform": {
+            "operatingSystemFamily": "LINUX"
+        },        
+        "requiresCompatibilities": [
+            "FARGATE"
+        ],
+        "cpu": "2048",
+        "memory": "4096"
+    }
+}
